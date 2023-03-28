@@ -25,7 +25,11 @@ function App() {
       name: "firstName",
       type: "text",
       placeholder: "First Name",
-      label: "First Name"
+      errorMessage: "*First name should be more than 3 letters and shouldnt include special character",
+      label: "First Name",
+      // this are the prewritten attribute
+      pattern: '^[A-Za-z0-9]{3,16}$',
+      required: true
 
     },
     {
@@ -33,41 +37,54 @@ function App() {
       name: "lastName",
       type: "text",
       placeholder:"Last Name",
-      label: "Last Name"
+      errorMessage: "*Last name should be more than 3 letters and shouldnt include special character",
+      label: "Last Name",
+      required: true
     },
     {
       id: 3,
       name: "email",
-      type: "text",
+      type: "email",
       placeholder:"Email",
-      label: "Email"
+      errorMessage: "*It should be valid email address",
+      label: "Email",
+      required: true
     },
     {
       id: 4,
       name: "phone",
       type: "text",
       placeholder:"Phone",
-      label: "Phone"
+      errorMessage: "*Enter atlest 10 number",
+      label: "Phone",
+      required: true
     },
     {
       id: 5,
       name: "createPassword",
-      type: "text",
+      type: "password",
       placeholder:"Create Password",
-      label: "Create Password"
+      errorMessage: "*Password should contain aleast 8-10 number",
+      label: "Create Password",
+      pattern: "^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[A-Za-z\d][A-Za-z\d!@#$%^&*()_+]{7,19}$",
+      required: true
     },
     {
       id: 6,
       name: "reTypePassword",
-      type: "text",
+      type: "password",
       placeholder:"Retype password",
-      label: "Retype password"
+      errorMessage: "*Password does not match",
+      label: "Retype password",
+      pattern: values.createPassword,
+      required: true
     },
     {
       id: 7,
       name: "Gender",
       type: "radio",
       placeholder:"Gender",
+      errorMessage: "",
       label: "Gender"
     },
     {
@@ -75,7 +92,9 @@ function App() {
       name: "Country",
       type: "text",
       placeholder:"Country",
-      label: "Country"
+      errorMessage: "*Select a country",
+      label: "Country",
+      required: true
     }
   ]
 
